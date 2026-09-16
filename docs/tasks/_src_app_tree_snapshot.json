@@ -1,0 +1,10 @@
+{
+  "harness_schema": "traveler-screen-route-v1",
+  "generated_by": "scripts/validate_inputs.py",
+  "src_app_files": [
+    "src/app/favicon.ico",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ]
+}

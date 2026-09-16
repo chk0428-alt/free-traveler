@@ -1,0 +1,210 @@
+{
+  "schema_version": "traveler-screen-route-v1",
+  "framework": "nextjs-app-router",
+  "generated_from": [
+    "docs/03_UI_COVERAGE_ANALYSIS.md",
+    "docs/04_UIUX_PLAN.md",
+    "docs/STITCH_VALIDATION_REPORT.md",
+    "design-reference/D-001/DESIGN.md",
+    "design-reference/UI_CONTRACT.md"
+  ],
+  "design_manifest_ref": "design-reference/DESIGN_MANIFEST.md",
+  "generated_date": "2026-09-15",
+  "screens": [
+    {
+      "screen_id": "SCR-001",
+      "route": "/",
+      "page_entry": "src/app/page.tsx",
+      "classification": "core",
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": true,
+      "stitch_approved_screen_id": "2a0bea03968b44548ab4995d295c5a4d",
+      "mobile_variant": {
+        "exists": true,
+        "stitch_approved_screen_id": "eec6035a9fef48f5a2f18462a5849d15"
+      },
+      "ui_contract_ref": "design-reference/UI_CONTRACT.md#scr-001--메인",
+      "design_reference_ref": "design-reference/D-001/DESIGN.md#17-화면별-section-순서와-최소-콘텐츠-수"
+    },
+    {
+      "screen_id": "SCR-002",
+      "route": "/about",
+      "page_entry": "src/app/about/page.tsx",
+      "classification": "supporting",
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": false,
+      "stitch_approved_screen_id": "86756e99f46e4d06b68d1ab22cdc5327",
+      "mobile_variant": {
+        "exists": false,
+        "stitch_approved_screen_id": null
+      },
+      "ui_contract_ref": "design-reference/UI_CONTRACT.md#scr-002--about-대표-소개",
+      "design_reference_ref": "design-reference/D-001/DESIGN.md#17-화면별-section-순서와-최소-콘텐츠-수"
+    },
+    {
+      "screen_id": "SCR-003",
+      "route": "/travel-tools",
+      "page_entry": "src/app/travel-tools/page.tsx",
+      "classification": "core",
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": false,
+      "stitch_approved_screen_id": "ed9175c4fae84c29976b5dee948f82a7",
+      "mobile_variant": {
+        "exists": true,
+        "stitch_approved_screen_id": "f290caa5ed354c70bde4b18f60be16d6"
+      },
+      "ui_contract_ref": "design-reference/UI_CONTRACT.md#scr-003--travel-tools-통합-여행-준비",
+      "design_reference_ref": "design-reference/D-001/DESIGN.md#17-화면별-section-순서와-최소-콘텐츠-수"
+    },
+    {
+      "screen_id": "SCR-004",
+      "route": "/mates",
+      "page_entry": "src/app/mates/page.tsx",
+      "classification": "core",
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": false,
+      "stitch_approved_screen_id": "6e4e82f9d4724e21b40b73717526ba4f",
+      "mobile_variant": {
+        "exists": false,
+        "stitch_approved_screen_id": null
+      },
+      "ui_contract_ref": "design-reference/UI_CONTRACT.md#scr-004--mates-동행-조회",
+      "design_reference_ref": "design-reference/D-001/DESIGN.md#17-화면별-section-순서와-최소-콘텐츠-수"
+    },
+    {
+      "screen_id": "SCR-005",
+      "route": "/account",
+      "page_entry": "src/app/account/page.tsx",
+      "classification": "core",
+      "page_owner_task_required": true,
+      "preview_required": true,
+      "starter_template_forbidden": false,
+      "stitch_approved_screen_id": "b0f813f46e80419480b1cd7c8ad632f8",
+      "mobile_variant": {
+        "exists": false,
+        "stitch_approved_screen_id": null
+      },
+      "ui_contract_ref": "design-reference/UI_CONTRACT.md#scr-005--account-계정관리",
+      "design_reference_ref": "design-reference/D-001/DESIGN.md#17-화면별-section-순서와-최소-콘텐츠-수"
+    }
+  ],
+  "technical_routes": [
+    {
+      "type": "auth_callback",
+      "route": "/auth/callback",
+      "page_entry": "src/app/auth/callback/route.ts",
+      "counted_as_screen": false
+    },
+    {
+      "type": "api_route",
+      "route": "/api/*",
+      "page_entry": "src/app/api/**/route.ts",
+      "counted_as_screen": false
+    },
+    {
+      "type": "not_found",
+      "route": "*",
+      "page_entry": "src/app/not-found.tsx",
+      "counted_as_screen": false
+    },
+    {
+      "type": "error_boundary",
+      "route": "*",
+      "page_entry": "src/app/error.tsx",
+      "counted_as_screen": false
+    }
+  ],
+  "required_navigation": [
+    {
+      "from": "SCR-001",
+      "to": "SCR-003",
+      "trigger": "Hero 검색·여행 준비 시작하기 CTA"
+    },
+    {
+      "from": "SCR-001",
+      "to": "SCR-004",
+      "trigger": "동행 찾기 CTA"
+    },
+    {
+      "from": "SCR-001",
+      "to": "SCR-002",
+      "trigger": "free_traveler 요약 섹션의 대표 소개 보러 가기 CTA"
+    },
+    {
+      "from": "SCR-002",
+      "to": "SCR-001",
+      "trigger": "추천 여행지 Card 클릭 (SCR-001 상세 Drawer로 연결)"
+    },
+    {
+      "from": "SCR-002",
+      "to": "SCR-003",
+      "trigger": "하단 CTA Banner - 여행 준비 시작하기"
+    },
+    {
+      "from": "SCR-002",
+      "to": "SCR-004",
+      "trigger": "하단 CTA Banner - 동행 찾아보기"
+    },
+    {
+      "from": "SCR-003",
+      "to": "SCR-005",
+      "trigger": "동행 탭에서 비로그인·성인확인 미완료 시 로그인/가입 CTA"
+    },
+    {
+      "from": "SCR-004",
+      "to": "SCR-003",
+      "trigger": "새 동행글 작성하기 CTA"
+    },
+    {
+      "from": "SCR-004",
+      "to": "SCR-005",
+      "trigger": "비로그인 상태로 참가 요청·글쓰기 시도 시 로그인 유도"
+    },
+    {
+      "from": "SCR-005",
+      "to": "SCR-001",
+      "trigger": "즐겨찾기 Card 클릭 (SCR-001 상세 Drawer로 연결)"
+    },
+    {
+      "from": "SCR-005",
+      "to": "SCR-004",
+      "trigger": "내 모집글·참가 요청 Card 클릭"
+    }
+  ],
+  "external_navigation": [
+    {
+      "from": "SCR-003",
+      "to": "external:flight_provider",
+      "trigger": "항공편 보러 가기 버튼",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "from": "SCR-003",
+      "to": "external:hotel_provider",
+      "trigger": "호텔 보러 가기 버튼",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "from": "SCR-001",
+      "to": "external:mofa_safety",
+      "trigger": "안전정보 Drawer 내 외교부 해외안전여행 원문 링크",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "completion_checks": {
+    "route_duplicates": false,
+    "page_entry_duplicates": false,
+    "screen_count": 5,
+    "core_screen_count": 4,
+    "supporting_screen_count": 1,
+    "core_screens": ["SCR-001", "SCR-003", "SCR-004", "SCR-005"],
+    "supporting_screens": ["SCR-002"]
+  }
+}
