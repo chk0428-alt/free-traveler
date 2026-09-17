@@ -1,6 +1,6 @@
 {
   "schema_version": "traveler-screen-route-v1",
-  "generated_at": "2026-09-16T12:35:13+00:00",
+  "generated_at": "2026-09-17T11:25:59+00:00",
   "waves": [
     {
       "wave_id": "W01",
@@ -14,9 +14,18 @@
         "INFRA-NOT-FOUND-ERROR",
         "INFRA-PLAYWRIGHT-CONFIG"
       ],
-      "status": "pending",
+      "status": "completed",
       "checkpoint_required": false,
-      "checkpoint_result": null
+      "checkpoint_result": null,
+      "tasks": {
+        "INFRA-DESIGN-TOKENS": "completed",
+        "INFRA-LAYOUT-SHELL": "completed",
+        "INFRA-CLIENT-STATE": "completed",
+        "INFRA-OUTBOUND-LINK": "completed",
+        "INFRA-CONTACT-DETECTION": "completed",
+        "INFRA-NOT-FOUND-ERROR": "completed",
+        "INFRA-PLAYWRIGHT-CONFIG": "completed"
+      }
     },
     {
       "wave_id": "W02",

@@ -1,0 +1,18 @@
+node_modules
+.next
+out
+build
+coverage
+public
+
+# Traveler 정본 문서 — 요구사항·Task·Wave 문서는 Prettier 검사 대상에서 제외한다
+docs
+TASKS
+design-reference
+
+# generated / vendor
+package-lock.json
+next-env.d.ts
+
+# prose docs (repo root, .claude 포함 전체)
+*.md
