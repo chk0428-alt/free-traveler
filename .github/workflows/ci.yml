@@ -35,8 +35,15 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Unit tests
+      - name: Unit tests (RLS 포함 — Secret 없으면 TEST-RLS-BASIC은 자동 skip)
         run: npm run test:unit
+        env:
+          RLS_TEST_OWNER_EMAIL: ${{ secrets.RLS_TEST_OWNER_EMAIL }}
+          RLS_TEST_OWNER_PASSWORD: ${{ secrets.RLS_TEST_OWNER_PASSWORD }}
+          RLS_TEST_APPLICANT_EMAIL: ${{ secrets.RLS_TEST_APPLICANT_EMAIL }}
+          RLS_TEST_APPLICANT_PASSWORD: ${{ secrets.RLS_TEST_APPLICANT_PASSWORD }}
+          RLS_TEST_OUTSIDER_EMAIL: ${{ secrets.RLS_TEST_OUTSIDER_EMAIL }}
+          RLS_TEST_OUTSIDER_PASSWORD: ${{ secrets.RLS_TEST_OUTSIDER_PASSWORD }}
 
       - name: Task contract
         run: npm run task:contract
@@ -69,6 +76,19 @@ jobs:
 
       - name: Public E2E smoke (Chromium, no login required)
         run: npm run test:e2e:public
+
+      - name: Travel tools E2E smoke (Chromium, no login required)
+        run: npm run test:e2e:travel-tools
+
+      - name: Mate/Auth E2E smoke (Chromium — Secret 없으면 자동 skip)
+        run: npm run test:e2e:mate-auth
+        env:
+          E2E_TEST_USER_EMAIL: ${{ secrets.E2E_TEST_USER_EMAIL }}
+          E2E_TEST_USER_PASSWORD: ${{ secrets.E2E_TEST_USER_PASSWORD }}
+          E2E_TEST_APPLICANT_EMAIL: ${{ secrets.E2E_TEST_APPLICANT_EMAIL }}
+          E2E_TEST_APPLICANT_PASSWORD: ${{ secrets.E2E_TEST_APPLICANT_PASSWORD }}
+          E2E_TEST_ADMIN_EMAIL: ${{ secrets.E2E_TEST_ADMIN_EMAIL }}
+          E2E_TEST_ADMIN_PASSWORD: ${{ secrets.E2E_TEST_ADMIN_PASSWORD }}
 
       - name: Upload Playwright report
         if: failure()
